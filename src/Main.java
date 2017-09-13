@@ -3,12 +3,37 @@ public class Main {
 
             GamePiece myGamePiece = new GamePiece();
 
-            myGamePiece.move(1,1);
-            System.out.println("Before Freeze" + myGamePiece.isFrozen());
+            System.out.println("Position before move: " + myGamePiece.getPositionX() + ", " + myGamePiece.getPositionY());
+            myGamePiece.move(1,2);
+            System.out.println("Position after move: " + myGamePiece.getPositionX() + ", " + myGamePiece.getPositionY());
+
+
+
+            System.out.println("Before Freeze " + myGamePiece.isFrozen());
             myGamePiece.freeze();
-            System.out.println("After Freeze" + myGamePiece.isFrozen());
+            if(myGamePiece.isFrozen() == true ){
+                System.out.println("Success, frozen");
+            } else {
+                System.out.println ("failure, YOU moved");
+            }
+
+            myGamePiece.move(5, 6);
+            if(myGamePiece.isFrozen() == true ){
+                System.out.println("Success you have moved");
+            } else {
+                System.out.println("you have not moved");
+            }
+
+
+            System.out.println("After Freeze " + myGamePiece.isFrozen());
             myGamePiece.unfreeze();
-            System.out.println("After unfreeze" + myGamePiece.isFrozen());
+            if(myGamePiece.isFrozen() == false ){
+                System.out.println("Success, you are unfrozen");
+            } else {
+                System.out.println ("unsuccessful you're still frozen");
+            }
+
+
 
         }
 }
